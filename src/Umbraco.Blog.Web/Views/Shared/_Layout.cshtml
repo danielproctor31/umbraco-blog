@@ -1,15 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Umbraco Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark">
+
+    <title>danielproctor.dev</title>
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@@picocss/pico@2/css/pico.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
-    <div class="container body-content">
-        @RenderBody()
-    </div>
-    @RenderSection("Scripts", required: false)
+  <header class="container">
+    <nav>
+      <ul>
+        <li><strong>danielproctor.dev</strong></li>
+      </ul>
+    </nav>
+    <hr />
+  </header>
+
+  <main class="container">
+    @RenderBody()
+  </main>
+
+  <footer class="container">
+    <hr />
+    <nav>
+      <ul>
+        <li><strong>Copyright © @DateTime.Now.Year  |  All rights reserved.</strong></li>
+      </ul>
+      <ul>
+        <li><a href="https://github.com/danielproctor31" class="fa-brands fa-github-alt"></a></i></li>
+        <li><a href="https://linkedin.com/in/daniel-proctor-uk" class="fa-brands fa-linkedin"></a></i></li>
+        <li><a href="mailto:hello@danielproctor.dev" class="fa-solid fa-envelope"></a></i></li>
+        @* <li><a href="https://danielproctor.dev/rss.xml" class="fa-solid fa-rss"></a></i></li> *@
+      </ul>
+    </nav>
+  </footer>
+
 </body>
+@RenderSection("Scripts", required: false)
 </html>
