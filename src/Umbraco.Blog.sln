@@ -1,4 +1,4 @@
-
+﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
@@ -7,13 +7,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Umbraco.Blog.Web", "Umbraco
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Solution Items", "_Solution Items", "{A51B3D32-F42A-4DE6-B389-FD2060E41472}"
 	ProjectSection(SolutionItems) = preProject
-		../.gitignore = .gitignore
-		../README.md = README.md
+		..\.gitignore = ..\.gitignore
+		..\README.md = ..\README.md
 		.dockerignore = .dockerignore
 		.editorconfig = .editorconfig
 		Directory.Packages.props = Directory.Packages.props
 		globals.json = globals.json
 		nuget.config = nuget.config
+		Directory.Build.props = Directory.Build.props
 	EndProjectSection
 EndProject
 Global
@@ -21,13 +22,13 @@ Global
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{13C7E39B-F777-4361-BCC5-77A7EC5FB05E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{13C7E39B-F777-4361-BCC5-77A7EC5FB05E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13C7E39B-F777-4361-BCC5-77A7EC5FB05E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13C7E39B-F777-4361-BCC5-77A7EC5FB05E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal
