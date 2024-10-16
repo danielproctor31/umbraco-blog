@@ -5,6 +5,5 @@
     <Nullable>enable</Nullable>
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
-    <UserSecretsId>bd903a94-7cf8-4155-9e86-d27c7f324671</UserSecretsId>
   </PropertyGroup>
 </Project>
