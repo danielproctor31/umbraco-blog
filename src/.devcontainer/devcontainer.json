@@ -17,7 +17,7 @@
 	// }
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "dotnet tool install --global dotnet-outdated-tool",
+	"postCreateCommand": "dotnet tool install --global dotnet-outdated-tool && dotnet dev-certs https --trust",
 
 	// Configure tool-specific properties.
 	"customizations": {
