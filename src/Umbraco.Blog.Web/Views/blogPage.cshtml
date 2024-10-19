@@ -1,14 +1,9 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
-@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<BlogPage>
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<BlogPageViewModel>
 @{
 	Layout = "_Layout";
 }
 
 <h1>@Model.Title</h1>
 
-@{
-    if (!string.IsNullOrEmpty(Model.Body?.ToHtmlString()))
-    {
-		@Html.Raw(Model.Body.ToHtmlString())
-    }
-}
+@Html.Raw(Model.Body);

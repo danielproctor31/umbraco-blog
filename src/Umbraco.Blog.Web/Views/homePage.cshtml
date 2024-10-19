@@ -5,3 +5,8 @@
 }
 
 <h1>@Model.Title</h1>
+
+@foreach(var blog in Model.BlogPosts)
+{
+	<a href="@blog.Url"><h3>@blog.Title</h3></a>
+}

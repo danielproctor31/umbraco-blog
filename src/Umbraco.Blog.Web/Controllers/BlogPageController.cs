@@ -7,13 +7,13 @@ using Umbraco.Cms.Web.Common.PublishedModels;
 
 namespace Umbraco.Blog.Web.Controllers;
 
-public class HomePageController(ILogger<HomePageController> logger, IRequestHandler<HomePage, HomePageViewModel> handler,
+public class BlogPageController(ILogger<BlogPageController> logger, IRequestHandler<BlogPage, BlogPageViewModel> handler,
 ICompositeViewEngine compositeViewEngine, IUmbracoContextAccessor umbracoContextAccessor) : RenderController(logger, compositeViewEngine, umbracoContextAccessor)
 {
     [NonAction]
     public sealed override IActionResult Index() => throw new NotImplementedException();
     public async Task<IActionResult> Index(CancellationToken cancellationToken)
     {
-        return CurrentTemplate(await handler.Handle(CurrentPage as HomePage));
+        return CurrentTemplate(await handler.Handle(CurrentPage as BlogPage));
     }
 }

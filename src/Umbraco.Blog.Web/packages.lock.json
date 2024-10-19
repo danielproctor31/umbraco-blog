@@ -3086,6 +3086,9 @@
           "Umbraco.Cms.Web.Website": "14.2.0"
         }
       },
+      "umbraco.blog.core": {
+        "type": "Project"
+      },
       "umbraco.blog.domain": {
         "type": "Project",
         "dependencies": {
