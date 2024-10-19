@@ -4,6 +4,8 @@
     <UserSecretsId>bd903a94-7cf8-4155-9e86-d27c7f324671</UserSecretsId>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="Htmx" />
+    <PackageReference Include="Htmx.TagHelpers" />
     <PackageReference Include="Umbraco.Cms" />
     <PackageReference Include="uSync" />
   </ItemGroup>
@@ -12,6 +14,10 @@
     <!-- Opt-in to app-local ICU to ensure consistent globalization APIs across different platforms -->
     <PackageReference Include="Microsoft.ICU.ICU4C.Runtime" />
     <RuntimeHostConfigurationOption Include="System.Globalization.AppLocalIcu" Version="72.1.0.3" Condition="$(RuntimeIdentifier.StartsWith('linux')) or $(RuntimeIdentifier.StartsWith('win')) or ('$(RuntimeIdentifier)' == '' and !$([MSBuild]::IsOSPlatform('osx')))" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Umbraco.Blog.Domain\Umbraco.Blog.Domain.csproj" />
   </ItemGroup>
 
   <PropertyGroup>
