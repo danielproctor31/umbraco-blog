@@ -9,8 +9,7 @@ public class HomePageRequestHandler(IVariationContextAccessor variationContextAc
 {
     public Task<HomePageViewModel> Handle(HomePage homePage) 
     {
-        var blogPages = homePage?.Children?.Where(x => x is BlogPage && x.IsPublished())
-            ?.Cast<BlogPage>()
+        var blogPages = homePage?.Descendants<BlogPage>()?.Where(x => x.IsPublished())
             ?.Select(x => new BlogItemViewModel
                 {
                     Title = x.Title,

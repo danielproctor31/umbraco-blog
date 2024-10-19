@@ -480,3 +480,6 @@ umbraco-package-schema.json
 
 # Media files
 /src/Umbraco.Blog.Web/wwwroot/media/
+
+# usync content
+/src/Umbraco.Blog.Web/usync/v14/content
