@@ -14,6 +14,6 @@ ICompositeViewEngine compositeViewEngine, IUmbracoContextAccessor umbracoContext
     public sealed override IActionResult Index() => throw new NotImplementedException();
     public async Task<IActionResult> Index(CancellationToken cancellationToken)
     {
-        return CurrentTemplate(await handler.Handle(CurrentPage as BlogPage));
+        return CurrentTemplate(await handler.Handle(CurrentPage as BlogPage, cancellationToken));
     }
 }

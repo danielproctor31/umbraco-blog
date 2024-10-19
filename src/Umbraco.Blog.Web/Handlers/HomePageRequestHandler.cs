@@ -7,7 +7,7 @@ namespace Umbraco.Blog.Web.Handlers;
 public class HomePageRequestHandler(IVariationContextAccessor variationContextAccessor, ServiceContext context) 
     : IRequestHandler<HomePage, HomePageViewModel>
 {
-    public Task<HomePageViewModel> Handle(HomePage homePage) 
+    public Task<HomePageViewModel> Handle(HomePage homePage, CancellationToken cancellationToken) 
     {
         var blogPages = homePage?.Descendants<BlogPage>()?.Where(x => x.IsPublished())
             ?.Select(x => new BlogItemViewModel
