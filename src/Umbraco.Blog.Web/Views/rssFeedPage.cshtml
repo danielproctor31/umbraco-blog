@@ -1,0 +1,74 @@
+﻿@using System.Web
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+    Layout = null;
+    var rssNode = Model;
+    var rootNode = rssNode.HasValue("rootNode") ?
+                        rssNode.Value<IPublishedContent>("rootNode") :
+                        rssNode.Parent;
+
+    if (rootNode == null)
+    {
+        // Drop out if used in a location with no parent and also set no root has been set manually
+        return;
+    }
+
+    Context.Response.ContentType = "application/rss+xml";
+
+    string rootDomain = rootNode.Url(mode: UrlMode.Absolute);
+    string rssUrl = rssNode.Url(mode: UrlMode.Absolute);
+    string rssLanguage = System.Threading.Thread.CurrentThread.CurrentCulture.Name;
+
+    var feedTitle = rssNode.Value<string>("title");
+    var feedSummary = rssNode.Value<string>("description");
+    var feedDocTypes = rssNode.Value<string>("limitToDoctypes")?.Split(";", StringSplitOptions.RemoveEmptyEntries);
+
+	string GetAuthorName(IPublishedContent currentNode)
+	{
+		return !string.IsNullOrEmpty(currentNode?.CreatorName()) ? currentNode.CreatorName() : string.Empty;
+	}
+
+    // Helper method to handle falling back through multiple fields. Identifier can be date, title, summary or author
+    // Done here rather than a controller so everything is fully self-contained
+    string? GetPublishedDate(IPublishedContent currentNode)
+    {
+		return currentNode.CreateDate.ToUniversalTime().ToString("R");
+    }
+}
+
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:media="http://search.yahoo.com/mrss/">
+    <channel>
+        <atom:link href="@(rssUrl)" rel="self" />
+        <title>@(feedTitle)</title>
+        @if (!string.IsNullOrEmpty(feedSummary))
+        {
+            <description>@(feedSummary)</description>
+        }
+        <link>@(rootDomain)</link>
+        <language>@(rssLanguage)</language>
+        @foreach (var currentNode in rootNode.Descendants())
+        {
+            if (currentNode.Value<bool>("excludeFromRss") == false &&
+                    currentNode.ContentType.Alias != Model.ContentType.Alias &&
+                    (feedDocTypes == null || !feedDocTypes.Any() || feedDocTypes.Contains(rssNode.ContentType.Alias) &&
+					currentNode.IsPublished())
+               )
+            {
+                var itemTitle = currentNode.Value<string>("seoTitle");
+                var itemSummary = currentNode.Value<string>("seoDescription");
+                var itemPublishDate = GetPublishedDate(currentNode);
+                var itemAuthor = GetAuthorName(currentNode);
+                var itemUrl = currentNode.Url(mode: UrlMode.Absolute);
+                <item>
+                    <title>@(itemTitle)</title>
+                    <description><![CDATA[@Html.Raw(itemSummary)]]></description>
+                    <guid>@(itemUrl)</guid>
+                    @(Html.Raw(String.Format("{0}{1}{2}", "<link>", itemUrl, "</link>")))
+                    <pubDate>@(itemPublishDate)</pubDate>
+                    <dc:creator>@(itemAuthor)</dc:creator>
+                </item>
+            }
+        }
+    </channel>
+</rss>

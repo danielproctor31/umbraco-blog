@@ -18,32 +18,29 @@ using Umbraco.Extensions;
 
 namespace Umbraco.Cms.Web.Common.PublishedModels
 {
-	// Mixin Content Type with alias "xmlSiteMapSettings"
-	/// <summary>XML SiteMap Settings</summary>
-	public partial interface IXmlSiteMapSettings : IPublishedContent
+	// Mixin Content Type with alias "seoSettings"
+	/// <summary>SEO Settings</summary>
+	public partial interface ISeoSettings : IPublishedContent
 	{
-		/// <summary>Hide From Xml Sitemap</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.0+32c00f9")]
-		bool HideFromXmlSitemap { get; }
-
-		/// <summary>Search Engine Change Frequency</summary>
+		/// <summary>SEO Description</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.0+32c00f9")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		string SearchEngineChangeFrequency { get; }
+		string SeoDescription { get; }
 
-		/// <summary>Search Engine Relative Priority</summary>
+		/// <summary>SEO Title</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.0+32c00f9")]
-		decimal SearchEngineRelativePriority { get; }
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		string SeoTitle { get; }
 	}
 
-	/// <summary>XML  SiteMap Settings</summary>
-	[PublishedModel("xmlSiteMapSettings")]
-	public partial class XmlSiteMapSettings : PublishedContentModel, IXmlSiteMapSettings
+	/// <summary>SEO Settings</summary>
+	[PublishedModel("seoSettings")]
+	public partial class SeoSettings : PublishedContentModel, ISeoSettings
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.0+32c00f9")]
-		public new const string ModelTypeAlias = "xmlSiteMapSettings";
+		public new const string ModelTypeAlias = "seoSettings";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.0+32c00f9")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.0+32c00f9")]
@@ -52,14 +49,14 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 			=> PublishedModelUtility.GetModelContentType(publishedSnapshotAccessor, ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.0+32c00f9")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<XmlSiteMapSettings, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<SeoSettings, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(publishedSnapshotAccessor), selector);
 #pragma warning restore 0109
 
 		private IPublishedValueFallback _publishedValueFallback;
 
 		// ctor
-		public XmlSiteMapSettings(IPublishedContent content, IPublishedValueFallback publishedValueFallback)
+		public SeoSettings(IPublishedContent content, IPublishedValueFallback publishedValueFallback)
 			: base(content, publishedValueFallback)
 		{
 			_publishedValueFallback = publishedValueFallback;
@@ -68,38 +65,29 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		// properties
 
 		///<summary>
-		/// Hide From Xml Sitemap
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.0+32c00f9")]
-		[ImplementPropertyType("hideFromXmlSitemap")]
-		public virtual bool HideFromXmlSitemap => GetHideFromXmlSitemap(this, _publishedValueFallback);
-
-		/// <summary>Static getter for Hide From Xml Sitemap</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.0+32c00f9")]
-		public static bool GetHideFromXmlSitemap(IXmlSiteMapSettings that, IPublishedValueFallback publishedValueFallback) => that.Value<bool>(publishedValueFallback, "hideFromXmlSitemap");
-
-		///<summary>
-		/// Search Engine Change Frequency
+		/// SEO Description
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.0+32c00f9")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("searchEngineChangeFrequency")]
-		public virtual string SearchEngineChangeFrequency => GetSearchEngineChangeFrequency(this, _publishedValueFallback);
+		[ImplementPropertyType("seoDescription")]
+		public virtual string SeoDescription => GetSeoDescription(this, _publishedValueFallback);
 
-		/// <summary>Static getter for Search Engine Change Frequency</summary>
+		/// <summary>Static getter for SEO Description</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.0+32c00f9")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static string GetSearchEngineChangeFrequency(IXmlSiteMapSettings that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "searchEngineChangeFrequency");
+		public static string GetSeoDescription(ISeoSettings that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "seoDescription");
 
 		///<summary>
-		/// Search Engine Relative Priority
+		/// SEO Title
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.0+32c00f9")]
-		[ImplementPropertyType("searchEngineRelativePriority")]
-		public virtual decimal SearchEngineRelativePriority => GetSearchEngineRelativePriority(this, _publishedValueFallback);
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("seoTitle")]
+		public virtual string SeoTitle => GetSeoTitle(this, _publishedValueFallback);
 
-		/// <summary>Static getter for Search Engine Relative Priority</summary>
+		/// <summary>Static getter for SEO Title</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.0+32c00f9")]
-		public static decimal GetSearchEngineRelativePriority(IXmlSiteMapSettings that, IPublishedValueFallback publishedValueFallback) => that.Value<decimal>(publishedValueFallback, "searchEngineRelativePriority");
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public static string GetSeoTitle(ISeoSettings that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "seoTitle");
 	}
 }

@@ -20,7 +20,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 {
 	/// <summary>BlogPage</summary>
 	[PublishedModel("blogPage")]
-	public partial class BlogPage : PublishedContentModel, IXmlSiteMapSettings
+	public partial class BlogPage : PublishedContentModel, IRssSettings, ISeoSettings, IXmlSiteMapSettings
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -64,6 +64,29 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("title")]
 		public virtual string Title => this.Value<string>(_publishedValueFallback, "title");
+
+		///<summary>
+		/// Exclude From RSS
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.0+32c00f9")]
+		[ImplementPropertyType("excludeFromRss")]
+		public virtual bool ExcludeFromRss => global::Umbraco.Cms.Web.Common.PublishedModels.RssSettings.GetExcludeFromRss(this, _publishedValueFallback);
+
+		///<summary>
+		/// SEO Description
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.0+32c00f9")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("seoDescription")]
+		public virtual string SeoDescription => global::Umbraco.Cms.Web.Common.PublishedModels.SeoSettings.GetSeoDescription(this, _publishedValueFallback);
+
+		///<summary>
+		/// SEO Title
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.0+32c00f9")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("seoTitle")]
+		public virtual string SeoTitle => global::Umbraco.Cms.Web.Common.PublishedModels.SeoSettings.GetSeoTitle(this, _publishedValueFallback);
 
 		///<summary>
 		/// Hide From Xml Sitemap

@@ -18,14 +18,23 @@ using Umbraco.Extensions;
 
 namespace Umbraco.Cms.Web.Common.PublishedModels
 {
-	/// <summary>XML SiteMap</summary>
-	[PublishedModel("xmlSiteMap")]
-	public partial class XmlSiteMap : PublishedContentModel
+	// Mixin Content Type with alias "rssSettings"
+	/// <summary>RSS Settings</summary>
+	public partial interface IRssSettings : IPublishedContent
+	{
+		/// <summary>Exclude From RSS</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.0+32c00f9")]
+		bool ExcludeFromRss { get; }
+	}
+
+	/// <summary>RSS Settings</summary>
+	[PublishedModel("rssSettings")]
+	public partial class RssSettings : PublishedContentModel, IRssSettings
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.0+32c00f9")]
-		public new const string ModelTypeAlias = "xmlSiteMap";
+		public new const string ModelTypeAlias = "rssSettings";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.0+32c00f9")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.0+32c00f9")]
@@ -34,14 +43,14 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 			=> PublishedModelUtility.GetModelContentType(publishedSnapshotAccessor, ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.0+32c00f9")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<XmlSiteMap, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<RssSettings, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(publishedSnapshotAccessor), selector);
 #pragma warning restore 0109
 
 		private IPublishedValueFallback _publishedValueFallback;
 
 		// ctor
-		public XmlSiteMap(IPublishedContent content, IPublishedValueFallback publishedValueFallback)
+		public RssSettings(IPublishedContent content, IPublishedValueFallback publishedValueFallback)
 			: base(content, publishedValueFallback)
 		{
 			_publishedValueFallback = publishedValueFallback;
@@ -50,11 +59,14 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		// properties
 
 		///<summary>
-		/// Excluded Document Types
+		/// Exclude From RSS
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.0+32c00f9")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("excludedDocumentTypes")]
-		public virtual string ExcludedDocumentTypes => this.Value<string>(_publishedValueFallback, "excludedDocumentTypes");
+		[ImplementPropertyType("excludeFromRss")]
+		public virtual bool ExcludeFromRss => GetExcludeFromRss(this, _publishedValueFallback);
+
+		/// <summary>Static getter for Exclude From RSS</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.0+32c00f9")]
+		public static bool GetExcludeFromRss(IRssSettings that, IPublishedValueFallback publishedValueFallback) => that.Value<bool>(publishedValueFallback, "excludeFromRss");
 	}
 }
