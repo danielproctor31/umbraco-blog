@@ -25,11 +25,9 @@
 
 	string GetAuthorName(IPublishedContent currentNode)
 	{
-		return !string.IsNullOrEmpty(currentNode?.CreatorName()) ? currentNode.CreatorName() : string.Empty;
+		return currentNode.CreatorName();
 	}
 
-    // Helper method to handle falling back through multiple fields. Identifier can be date, title, summary or author
-    // Done here rather than a controller so everything is fully self-contained
     string? GetPublishedDate(IPublishedContent currentNode)
     {
 		return currentNode.CreateDate.ToUniversalTime().ToString("R");

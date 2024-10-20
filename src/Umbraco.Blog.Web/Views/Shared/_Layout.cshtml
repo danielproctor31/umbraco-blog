@@ -1,14 +1,49 @@
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+    var seoTitle = Model.Value<string>("seoTitle");
+    var seoDescription = Model.Value<string>("seoDescription");
+    var url = Model.Url(mode: UrlMode.Absolute);
+
+    string GetAuthorName(IPublishedContent currentNode)
+    {
+        return currentNode.CreatorName();
+    }
+
+    string GetPublishedDate(IPublishedContent currentNode)
+    {
+        return currentNode.CreateDate.ToUniversalTime().ToString("R");
+    }
+}
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="author" content="Daniel Proctor">
 
-    <title>danielproctor.dev</title>
+    @* Meta *@
+    <title>@seoTitle</title>
+    <link rel="canonical" href="@url">
+    <meta name="title" content="@seoTitle">
+    <meta name="description" content="@seoDescription">
+    <meta name="author" content="@GetAuthorName(Model)">
+    <link rel="sitemap" href="/sitemap">
+    @* TODO: Article Published/Modified Time *@
     
+    @* Open Graph / Facebook *@
+    <meta property="og:title" content="@seoTitle">
+    <meta property="og:description" content="@seoDescription">
+    <meta property="og:url" content="@url">
+    @* <meta property="og:image" content=""> *@
+
+    @* Twitter *@
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="@url">
+    <meta property="twitter:title" content="@seoTitle">
+    <meta property="twitter:description" content="@seoDescription">
+    @* <meta property="twitter:image" content=""> *@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@@picocss/pico@2/css/pico.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
