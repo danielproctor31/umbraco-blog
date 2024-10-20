@@ -1,0 +1,3 @@
+Sitemap: https://danielproctor.dev/sitemap
+User-agent: *
+Crawl-delay: 10

@@ -18,14 +18,14 @@ using Umbraco.Extensions;
 
 namespace Umbraco.Cms.Web.Common.PublishedModels
 {
-	/// <summary>HomePage</summary>
-	[PublishedModel("homePage")]
-	public partial class HomePage : PublishedContentModel, IXmlSiteMapSettings
+	/// <summary>XmlSiteMap</summary>
+	[PublishedModel("xmlSiteMap")]
+	public partial class XmlSiteMap : PublishedContentModel
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.0+32c00f9")]
-		public new const string ModelTypeAlias = "homePage";
+		public new const string ModelTypeAlias = "xmlSiteMap";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.0+32c00f9")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.0+32c00f9")]
@@ -34,14 +34,14 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 			=> PublishedModelUtility.GetModelContentType(publishedSnapshotAccessor, ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.0+32c00f9")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<HomePage, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<XmlSiteMap, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(publishedSnapshotAccessor), selector);
 #pragma warning restore 0109
 
 		private IPublishedValueFallback _publishedValueFallback;
 
 		// ctor
-		public HomePage(IPublishedContent content, IPublishedValueFallback publishedValueFallback)
+		public XmlSiteMap(IPublishedContent content, IPublishedValueFallback publishedValueFallback)
 			: base(content, publishedValueFallback)
 		{
 			_publishedValueFallback = publishedValueFallback;
@@ -50,33 +50,11 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		// properties
 
 		///<summary>
-		/// Title
+		/// Excluded Document Types
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.0+32c00f9")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("title")]
-		public virtual string Title => this.Value<string>(_publishedValueFallback, "title");
-
-		///<summary>
-		/// Hide From Xml Sitemap
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.0+32c00f9")]
-		[ImplementPropertyType("hideFromXmlSitemap")]
-		public virtual bool HideFromXmlSitemap => global::Umbraco.Cms.Web.Common.PublishedModels.XmlSiteMapSettings.GetHideFromXmlSitemap(this, _publishedValueFallback);
-
-		///<summary>
-		/// Search Engine Change Frequency
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.0+32c00f9")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("searchEngineChangeFrequency")]
-		public virtual string SearchEngineChangeFrequency => global::Umbraco.Cms.Web.Common.PublishedModels.XmlSiteMapSettings.GetSearchEngineChangeFrequency(this, _publishedValueFallback);
-
-		///<summary>
-		/// Search Engine Relative Priority
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.0+32c00f9")]
-		[ImplementPropertyType("searchEngineRelativePriority")]
-		public virtual decimal SearchEngineRelativePriority => global::Umbraco.Cms.Web.Common.PublishedModels.XmlSiteMapSettings.GetSearchEngineRelativePriority(this, _publishedValueFallback);
+		[ImplementPropertyType("excludedDocumentTypes")]
+		public virtual string ExcludedDocumentTypes => this.Value<string>(_publishedValueFallback, "excludedDocumentTypes");
 	}
 }

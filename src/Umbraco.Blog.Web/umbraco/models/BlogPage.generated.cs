@@ -20,7 +20,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 {
 	/// <summary>BlogPage</summary>
 	[PublishedModel("blogPage")]
-	public partial class BlogPage : PublishedContentModel
+	public partial class BlogPage : PublishedContentModel, IXmlSiteMapSettings
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -64,5 +64,27 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("title")]
 		public virtual string Title => this.Value<string>(_publishedValueFallback, "title");
+
+		///<summary>
+		/// Hide From Xml Sitemap
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.0+32c00f9")]
+		[ImplementPropertyType("hideFromXmlSitemap")]
+		public virtual bool HideFromXmlSitemap => global::Umbraco.Cms.Web.Common.PublishedModels.XmlSiteMapSettings.GetHideFromXmlSitemap(this, _publishedValueFallback);
+
+		///<summary>
+		/// Search Engine Change Frequency
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.0+32c00f9")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("searchEngineChangeFrequency")]
+		public virtual string SearchEngineChangeFrequency => global::Umbraco.Cms.Web.Common.PublishedModels.XmlSiteMapSettings.GetSearchEngineChangeFrequency(this, _publishedValueFallback);
+
+		///<summary>
+		/// Search Engine Relative Priority
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.3.0+32c00f9")]
+		[ImplementPropertyType("searchEngineRelativePriority")]
+		public virtual decimal SearchEngineRelativePriority => global::Umbraco.Cms.Web.Common.PublishedModels.XmlSiteMapSettings.GetSearchEngineRelativePriority(this, _publishedValueFallback);
 	}
 }
