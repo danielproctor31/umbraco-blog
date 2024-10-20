@@ -14,7 +14,6 @@ WebApplication app = builder.Build();
 
 await app.BootUmbracoAsync();
 
-
 app.UseUmbraco()
     .WithMiddleware(u =>
     {
@@ -26,5 +25,14 @@ app.UseUmbraco()
         u.UseBackOfficeEndpoints();
         u.UseWebsiteEndpoints();
     });
+
+if (builder.Environment.IsDevelopment())
+{
+    app.UseDeveloperExceptionPage();
+}
+else
+{
+    app.UseExceptionHandler("/error");
+}
 
 await app.RunAsync();

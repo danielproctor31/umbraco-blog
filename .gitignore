@@ -482,4 +482,6 @@ umbraco-package-schema.json
 /src/Umbraco.Blog.Web/wwwroot/media/
 
 # usync content
-/src/Umbraco.Blog.Web/usync/v14/content
+/src/Umbraco.Blog.Web/usync/v14/content/*
+!/src/Umbraco.Blog.Web/usync/v14/content/Statuscodes.config
+!/src/Umbraco.Blog.Web/usync/v14/content/404.config
