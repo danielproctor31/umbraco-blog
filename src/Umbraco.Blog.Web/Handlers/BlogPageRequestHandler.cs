@@ -11,7 +11,7 @@ public class BlogPageRequestHandler(IVariationContextAccessor variationContextAc
     {
         return Task.FromResult(new BlogPageViewModel(blogPage, new PublishedValueFallback(context, variationContextAccessor))
         {
-            Title = blogPage.Title,
+            Title = blogPage.Title ?? string.Empty,
             Body = blogPage.Body?.ToHtmlString() ?? string.Empty,
         });
     }

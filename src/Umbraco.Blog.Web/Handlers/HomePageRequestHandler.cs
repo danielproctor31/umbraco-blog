@@ -1,3 +1,4 @@
+using NPoco.Expressions;
 using Umbraco.Blog.Core.Interfaces;
 using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Cms.Core.Services;
@@ -9,17 +10,17 @@ public class HomePageRequestHandler(IVariationContextAccessor variationContextAc
 {
     public Task<HomePageViewModel> Handle(HomePage homePage, CancellationToken cancellationToken) 
     {
-        var blogPages = homePage?.Descendants<BlogPage>()?.Where(x => x.IsPublished())
+        var blogPages = homePage.Descendants<BlogPage>()?.Where(x => x.IsPublished())
             ?.Select(x => new BlogItemViewModel
                 {
-                    Title = x.Title,
+                    Title = x.Title ?? string.Empty,
                     Url = x.Url(),
                 });
 
         return Task.FromResult(new HomePageViewModel(homePage, new PublishedValueFallback(context, variationContextAccessor))
         {
-            Title = homePage.Title,
-            BlogPosts = blogPages
+            Title = homePage.Title ?? string.Empty,
+            BlogPosts = blogPages ?? []
         });
     }
 }
