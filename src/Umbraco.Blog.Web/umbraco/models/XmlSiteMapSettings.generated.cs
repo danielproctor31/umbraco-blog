@@ -36,7 +36,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		decimal SearchEngineRelativePriority { get; }
 	}
 
-	/// <summary>XML  SiteMap Settings</summary>
+	/// <summary>XML SiteMap Settings</summary>
 	[PublishedModel("xmlSiteMapSettings")]
 	public partial class XmlSiteMapSettings : PublishedContentModel, IXmlSiteMapSettings
 	{
