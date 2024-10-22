@@ -1,4 +1,3 @@
-using NPoco.Expressions;
 using Umbraco.Blog.Core.Interfaces;
 using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Cms.Core.Services;
