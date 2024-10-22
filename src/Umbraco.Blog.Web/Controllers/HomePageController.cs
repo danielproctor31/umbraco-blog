@@ -14,11 +14,19 @@ ICompositeViewEngine compositeViewEngine, IUmbracoContextAccessor umbracoContext
     public sealed override IActionResult Index() => throw new NotImplementedException();
     public async Task<IActionResult> Index(CancellationToken cancellationToken)
     {
-        if (CurrentPage is not HomePage homePage)
+        try
         {
-            return NotFound();
+            if (CurrentPage is not HomePage homePage)
+            {
+                return BadRequest();
+            }
+            
+            return CurrentTemplate(await handler.Handle(homePage, cancellationToken));  
         }
-        
-        return CurrentTemplate(await handler.Handle(homePage, cancellationToken));    
+        catch (Exception e)
+        {
+            logger.LogError(e, $"Error getting {nameof(HomePage)}");
+            return BadRequest();
+        }  
     }
 }
