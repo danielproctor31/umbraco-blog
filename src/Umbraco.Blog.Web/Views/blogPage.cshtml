@@ -5,5 +5,8 @@
 }
 
 <h1>@Model.Title</h1>
-
+<i class="fa-regular fa-calendar-days"></i>
+<span><i>@Model.CreateDate.ToString("MMM dd, yyyy | 'at' hh:mm tt")</i></span>
+<br />
+<br />
 @Html.Raw(Model.Body);

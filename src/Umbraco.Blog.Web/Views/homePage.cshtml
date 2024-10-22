@@ -9,4 +9,6 @@
 @foreach(var blog in Model.BlogPosts)
 {
 	<a href="@blog.Url"><h3>@blog.Title</h3></a>
+	<i class="fa-regular fa-calendar-days"></i>
+	<span><i>@Model.CreateDate.ToString("MMM dd, yyyy | 'at' hh:mm tt")</i></span>
 }
