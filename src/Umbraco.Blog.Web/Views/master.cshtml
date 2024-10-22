@@ -1,51 +1,54 @@
 ﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
 @{
-    var seoTitle = Model.Value<string>("seoTitle");
-    var seoDescription = Model.Value<string>("seoDescription");
-    var url = Model.Url(mode: UrlMode.Absolute);
+  var seoTitle = Model.Value<string>("seoTitle");
+  var seoDescription = Model.Value<string>("seoDescription");
+  var url = Model.Url(mode: UrlMode.Absolute);
 
-    string GetAuthorName(IPublishedContent currentNode)
-    {
-        return currentNode.CreatorName();
-    }
+  string GetAuthorName(IPublishedContent currentNode)
+  {
+    return currentNode.CreatorName();
+  }
 
-    string GetPublishedDate(IPublishedContent currentNode)
-    {
-        return currentNode.CreateDate.ToUniversalTime().ToString("R");
-    }
+  string GetPublishedDate(IPublishedContent currentNode)
+  {
+    return currentNode.CreateDate.ToUniversalTime().ToString("R");
+  }
 }
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="color-scheme" content="light dark">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
 
-    @* Meta *@
-    <title>@seoTitle</title>
-    <link rel="canonical" href="@url">
-    <meta name="title" content="@seoTitle">
-    <meta name="description" content="@seoDescription">
-    <meta name="author" content="@GetAuthorName(Model)">
-    <link rel="sitemap" href="/sitemap">
-    @* TODO: Article Published/Modified Time *@
+  @* Meta *@
+  <title>@seoTitle</title>
+  <link rel="canonical" href="@url">
+  <meta name="title" content="@seoTitle">
+  <meta name="description" content="@seoDescription">
+  <meta name="author" content="@GetAuthorName(Model)">
+  <link rel="sitemap" href="/sitemap">
+  @* TODO: Article Published/Modified Time *@
 
-    @* Open Graph / Facebook *@
-    <meta property="og:title" content="@seoTitle">
-    <meta property="og:description" content="@seoDescription">
-    <meta property="og:url" content="@url">
-    @* <meta property="og:image" content=""> *@
+  @* Open Graph / Facebook *@
+  <meta property="og:title" content="@seoTitle">
+  <meta property="og:description" content="@seoDescription">
+  <meta property="og:url" content="@url">
+  @* <meta property="og:image" content=""> *@
 
-    @* Twitter *@
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="@url">
-    <meta property="twitter:title" content="@seoTitle">
-    <meta property="twitter:description" content="@seoDescription">
-    @* <meta property="twitter:image" content=""> *@
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@@picocss/pico@2/css/pico.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  @* Twitter *@
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="@url">
+  <meta property="twitter:title" content="@seoTitle">
+  <meta property="twitter:description" content="@seoDescription">
+  @* <meta property="twitter:image" content=""> *@
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/theme-toggles@4.10.1/css/classic.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@@picocss/pico@2/css/pico.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -53,6 +56,33 @@
     <nav>
       <ul>
         <li><strong>danielproctor.dev</strong></li>
+      </ul>
+      <ul>
+        <li>
+          <label class="theme-toggle" title="Toggle theme">
+            <input data-theme-switcher type="checkbox" />
+            <span class="theme-toggle-sr">Toggle theme</span>
+            <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="1em" height="1em" fill="currentColor"
+              stroke-linecap="round" class="theme-toggle__classic" viewBox="0 0 32 32" style="transform: scale(1.5);">
+              <clipPath id="theme-toggle__classic__cutout">
+                <path d="M0-5h30a1 1 0 0 0 9 13v24H0Z" />
+              </clipPath>
+              <g clip-path="url(#theme-toggle__classic__cutout)">
+                <circle cx="16" cy="16" r="9.34" />
+                <g stroke="currentColor" stroke-width="1.5">
+                  <path d="M16 5.5v-4" />
+                  <path d="M16 30.5v-4" />
+                  <path d="M1.5 16h4" />
+                  <path d="M26.5 16h4" />
+                  <path d="m23.4 8.6 2.8-2.8" />
+                  <path d="m5.7 26.3 2.9-2.9" />
+                  <path d="m5.8 5.8 2.8 2.8" />
+                  <path d="m23.4 23.4 2.9 2.9" />
+                </g>
+              </g>
+            </svg>
+          </label>
+        </li>
       </ul>
     </nav>
   </header>
@@ -65,7 +95,7 @@
     <hr />
     <nav>
       <ul>
-        <li><strong>Copyright © @DateTime.Now.Year  |  All rights reserved.</strong></li>
+        <li><strong>Copyright © @DateTime.Now.Year | All rights reserved.</strong></li>
       </ul>
       <ul>
         <li><a href="https://github.com/danielproctor31" class="fa-brands fa-github-alt"></a></li>
@@ -76,5 +106,71 @@
     </nav>
   </footer>
   @RenderSection("Scripts", required: false)
+
+  <script type="text/javascript">
+    const themeSwitcher = {
+      // Config
+      _scheme: "auto",
+      inputTarget: "input[data-theme-switcher]",
+      rootAttribute: "data-theme",
+      localStorageKey: "picoPreferredColorScheme",
+
+      // Init
+      init() {
+        this.scheme = this.schemeFromLocalStorage;
+        this.initSwitchers();
+      },
+
+      // Get color scheme from local storage
+      get schemeFromLocalStorage() {
+        return window.localStorage?.getItem(this.localStorageKey) ?? this._scheme;
+      },
+
+      // Preferred color scheme
+      get preferredColorScheme() {
+        return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      },
+
+      // Init switchers
+      initSwitchers() {
+        const input = document.querySelector(this.inputTarget);
+        input.addEventListener('change', () => {
+          event.preventDefault();
+          // set scheme based on checked or not
+          input.checked ? this.setScheme("light") : this.setScheme("dark");
+        }, false);
+      },
+
+      // Set scheme
+      setScheme(scheme) {
+        if (scheme == "auto") {
+          this._scheme = this.preferredColorScheme;
+        } else if (scheme == "dark" || scheme == "light") {
+          this._scheme = scheme;
+        }
+        this.applyScheme();
+        this.schemeToLocalStorage();
+      },
+
+      // Get scheme
+      get scheme() {
+        return this._scheme;
+      },
+
+      // Apply scheme
+      applyScheme() {
+        document.querySelector("html")?.setAttribute(this.rootAttribute, this.scheme);
+      },
+
+      // Store scheme to local storage
+      schemeToLocalStorage() {
+        window.localStorage?.setItem(this.localStorageKey, this.scheme);
+      },
+    };
+
+    // Init
+    themeSwitcher.init();
+  </script>
 </body>
+
 </html>
