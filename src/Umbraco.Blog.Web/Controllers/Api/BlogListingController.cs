@@ -2,9 +2,10 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Umbraco.Blog.Core.Interfaces;
 using Umbraco.Blog.Domain.Models;
+using Umbraco.Blog.Domain.Models.Requests;
 using Umbraco.Blog.Domain.ViewModels;
 
-namespace Umbraco.Blog.Web.Controllers;
+namespace Umbraco.Blog.Web.Controllers.Api;
 
 [Route("api/[controller]")]
 [ApiController]
@@ -12,7 +13,7 @@ public class BlogListingController(IRequestHandler<BlogListingRequest, BlogListi
     ILogger<BlogListingController> logger) : ControllerBase
 {
     [HttpGet]
-    public async Task<IActionResult> Index([FromQuery] BlogListingRequest request)
+    public async Task<IActionResult> Index([FromQuery] BlogListingRequestDto request)
     {
         if(!ModelState.IsValid)
         {
@@ -21,7 +22,7 @@ public class BlogListingController(IRequestHandler<BlogListingRequest, BlogListi
 
         try
         {
-            return Ok(await handler.Handle(request, default));
+            return Ok(await handler.Handle(new BlogListingRequest(request.Page, request.BlogFolderId), default));
         }
         catch (Exception e)
         {

@@ -1,5 +1,5 @@
 using Umbraco.Blog.Core.Interfaces;
-using Umbraco.Blog.Domain.Models;
+using Umbraco.Blog.Domain.Models.Requests;
 using Umbraco.Blog.Domain.ViewModels;
 using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Cms.Core.Services;
