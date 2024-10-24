@@ -1,25 +1,24 @@
 using Umbraco.Blog.Core.Interfaces;
+using Umbraco.Blog.Domain.Models;
+using Umbraco.Blog.Domain.ViewModels;
 using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Cms.Core.Services;
 using Umbraco.Cms.Web.Common.PublishedModels;
 
 namespace Umbraco.Blog.Web.Handlers;
-public class HomePageRequestHandler(IVariationContextAccessor variationContextAccessor, ServiceContext context) 
+public class HomePageRequestHandler(IVariationContextAccessor variationContextAccessor, ServiceContext context,
+    IRequestHandler<BlogListingRequest, BlogListingViewModel> blogListingHandler) 
     : IRequestHandler<HomePage, HomePageViewModel>
 {
-    public Task<HomePageViewModel> Handle(HomePage homePage, CancellationToken cancellationToken) 
+    public async Task<HomePageViewModel> Handle(HomePage homePage, CancellationToken cancellationToken) 
     {
-        var blogPages = homePage.Descendants<BlogPage>()?.Where(x => x.IsPublished())
-            ?.Select(x => new BlogItemViewModel
-                {
-                    Title = x.Title ?? string.Empty,
-                    Url = x.Url(),
-                });
+        var blogFolderId = homePage.BlogFolder?.Id ?? 0;
+        var blogListing = await blogListingHandler.Handle(new BlogListingRequest(1, blogFolderId), cancellationToken);
 
-        return Task.FromResult(new HomePageViewModel(homePage, new PublishedValueFallback(context, variationContextAccessor))
+        return new HomePageViewModel(homePage, new PublishedValueFallback(context, variationContextAccessor))
         {
             Title = homePage.Title ?? string.Empty,
-            BlogPosts = blogPages ?? []
-        });
+            BlogListing = blogListing
+        };
     }
 }

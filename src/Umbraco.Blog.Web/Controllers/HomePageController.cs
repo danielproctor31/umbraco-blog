@@ -26,7 +26,7 @@ ICompositeViewEngine compositeViewEngine, IUmbracoContextAccessor umbracoContext
         catch (Exception e)
         {
             logger.LogError(e, $"Error getting {nameof(HomePage)}");
-            return BadRequest();
+            return StatusCode(500);
         }  
     }
 }

@@ -6,9 +6,12 @@
 
 <h1>@Model.Title</h1>
 
-@foreach(var blog in Model.BlogPosts)
+@if(Model?.BlogListing.Items != null)
 {
-	<a href="@blog.Url"><h3>@blog.Title</h3></a>
-	<i class="fa-regular fa-calendar-days"></i>
-	<span><i>@Model.CreateDate.ToString("MMM dd, yyyy | 'at' hh:mm tt")</i></span>
+	@foreach(var blog in Model.BlogListing.Items)
+	{
+		<a href="@blog.Url"><h3>@blog.Title</h3></a>
+		<i class="fa-regular fa-calendar-days"></i>
+		<span><i>@blog.CreateDate.ToString("MMM dd, yyyy | 'at' hh:mm tt")</i></span>
+	}
 }

@@ -1,5 +1,6 @@
 
 using System.Diagnostics.CodeAnalysis;
+using Umbraco.Blog.Domain.ViewModels;
 using Umbraco.Cms.Core.Models.PublishedContent;
 
 [ExcludeFromCodeCoverage]
@@ -11,12 +12,5 @@ public class HomePageViewModel  : PublishedContentWrapped
     }
 
     public string Title { get; set; } = string.Empty;
-    public IEnumerable<BlogItemViewModel> BlogPosts { get; set; } = [];
-}
-
-[ExcludeFromCodeCoverage]
-public class BlogItemViewModel
-{
-    public string Title { get; set; } = string.Empty;
-    public string Url { get; set; } = string.Empty;
+    public BlogListingViewModel BlogListing { get; set; } = new BlogListingViewModel();
 }
