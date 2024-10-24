@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using Umbraco.Blog.Core.Interfaces;
 using Umbraco.Blog.Domain.Models;
 using Umbraco.Blog.Domain.ViewModels;
@@ -24,7 +25,8 @@ public class BlogListingController(IRequestHandler<BlogListingRequest, BlogListi
         }
         catch (Exception e)
         {
-            logger.LogError(e, $"Error getting blogs");
+            var requestJson = JsonConvert.SerializeObject(request);
+            logger.LogError(e, "Error getting blogs for request {requestJson}", requestJson);
             return StatusCode(500);
         }
     }

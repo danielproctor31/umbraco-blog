@@ -13,7 +13,12 @@ public class HomePageRequestHandler(IVariationContextAccessor variationContextAc
     public async Task<HomePageViewModel> Handle(HomePage homePage, CancellationToken cancellationToken) 
     {
         var blogFolderId = homePage.BlogFolder?.Id ?? 0;
-        var blogListing = await blogListingHandler.Handle(new BlogListingRequest(1, blogFolderId), cancellationToken);
+        var blogListing = new BlogListingViewModel();
+
+        if (blogFolderId > 0)
+        {
+            blogListing = await blogListingHandler.Handle(new BlogListingRequest(1, blogFolderId), cancellationToken);
+        }
 
         return new HomePageViewModel(homePage, new PublishedValueFallback(context, variationContextAccessor))
         {

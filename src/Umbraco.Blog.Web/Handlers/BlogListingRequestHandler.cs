@@ -1,3 +1,4 @@
+using Umbraco.Blog.Core.Exceptions;
 using Umbraco.Blog.Core.Interfaces;
 using Umbraco.Blog.Domain.Models;
 using Umbraco.Blog.Domain.ViewModels;
@@ -14,14 +15,14 @@ public class BlogListingRequestHandler(IUmbracoContextAccessor umbracoContextAcc
 
         if (!hasContext)
         {
-            return Task.FromResult(new BlogListingViewModel());
+            throw new UmbracoContextNotFoundException();
         }
 
         var blogFolder = context?.Content?.GetById(request.BlogFolderId);
 
         if (blogFolder == null)
         {
-            return Task.FromResult(new BlogListingViewModel());
+            throw new ContentNotFoundException($"No blog folder found with id: {request.BlogFolderId}");
         }
 
         var blogPages = blogFolder.Children<BlogPage>();
