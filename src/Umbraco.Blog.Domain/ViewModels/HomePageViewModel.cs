@@ -12,5 +12,5 @@ public class HomePageViewModel  : PublishedContentWrapped
     }
 
     public string Title { get; set; } = string.Empty;
-    public BlogListingViewModel BlogListing { get; set; } = new BlogListingViewModel();
+    public BlogListingResponseDto BlogListing { get; set; } = new();
 }

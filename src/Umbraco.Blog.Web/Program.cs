@@ -1,8 +1,10 @@
+using Umbraco.Blog.Services;
 using Umbraco.Blog.Web.Extensions;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddRequestHandlers();
+builder.Services.AddBlogServices();
 
 builder.CreateUmbracoBuilder()
     .AddBackOffice()

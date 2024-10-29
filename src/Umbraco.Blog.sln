@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Umbraco.Blog.Domain", "Umbr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Umbraco.Blog.Core", "Umbraco.Blog.Core\Umbraco.Blog.Core.csproj", "{079CE9E4-7C71-457B-8892-8AEA1DDB00F2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Umbraco.Blog.Services", "Umbraco.Blog.Services\Umbraco.Blog.Services.csproj", "{42709BFF-071B-4BDF-9BC4-0F0F62665FC0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{079CE9E4-7C71-457B-8892-8AEA1DDB00F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{079CE9E4-7C71-457B-8892-8AEA1DDB00F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{079CE9E4-7C71-457B-8892-8AEA1DDB00F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42709BFF-071B-4BDF-9BC4-0F0F62665FC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42709BFF-071B-4BDF-9BC4-0F0F62665FC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42709BFF-071B-4BDF-9BC4-0F0F62665FC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42709BFF-071B-4BDF-9BC4-0F0F62665FC0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

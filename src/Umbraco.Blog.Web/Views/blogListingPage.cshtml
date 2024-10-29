@@ -1,0 +1,9 @@
+﻿@using Newtonsoft.Json
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<BlogListingPageViewModel>
+@{
+	Layout = "master.cshtml";
+}
+
+@Html.Raw(JsonConvert.SerializeObject(Model.Results));
+@* conditionally show next/prev based on page number, pagesize, total results  *@

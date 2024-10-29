@@ -1,0 +1,6 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="..\Umbraco.Blog.Core\Umbraco.Blog.Core.csproj" />
+    <ProjectReference Include="..\Umbraco.Blog.Domain\Umbraco.Blog.Domain.csproj" />
+  </ItemGroup>
+</Project>

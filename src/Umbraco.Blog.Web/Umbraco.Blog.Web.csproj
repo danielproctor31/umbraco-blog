@@ -19,6 +19,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Umbraco.Blog.Domain\Umbraco.Blog.Domain.csproj" />
     <ProjectReference Include="..\Umbraco.Blog.Core\Umbraco.Blog.Core.csproj" />
+    <ProjectReference Include="..\Umbraco.Blog.Services\Umbraco.Blog.Services.csproj" />
   </ItemGroup>
 
   <PropertyGroup>
