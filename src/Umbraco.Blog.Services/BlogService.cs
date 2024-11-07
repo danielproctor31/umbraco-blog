@@ -1,5 +1,6 @@
 using System;
 using Umbraco.Blog.Core.Exceptions;
+using Umbraco.Blog.Domain.Models.Dto;
 using Umbraco.Blog.Domain.Models.Requests;
 using Umbraco.Blog.Domain.ViewModels;
 using Umbraco.Blog.Services.Interfaces;
@@ -12,7 +13,7 @@ public class BlogService(IUmbracoContextAccessor umbracoContextAccessor) : IBlog
 {
     public Task<BlogListingResponseDto> GetBlogPosts(BlogListingRequest request)
     {
-        var hasContext = umbracoContextAccessor.TryGetUmbracoContext(out var context);
+        bool hasContext = umbracoContextAccessor.TryGetUmbracoContext(out var context);
 
         if (!hasContext)
         {
@@ -27,21 +28,21 @@ public class BlogService(IUmbracoContextAccessor umbracoContextAccessor) : IBlog
         }
 
         var blogPages = blogFolder.Children<IPublishedContent>()?
-                            .Where(x => x.ContentType.Alias.Equals("blogPage"));
+                            .Where(x => x.ContentType.Alias.Equals("blogPage")).ToArray();
 
         var blogItems = blogPages?.Skip((request.Page * 10) - 10)
             ?.Take(10)
             ?.Select(x => new BlogItemViewModel
-                {
+            {
                 Title = x.Value<string>("title") ?? string.Empty,
-                    CreateDate = x.CreateDate,
-                    Url = x.Url(),
-                });
+                CreateDate = x.CreateDate,
+                Url = x.Url(),
+            });
 
         return Task.FromResult(new BlogListingResponseDto
         {
             Page = request.Page,
-            Total = blogPages?.Count() ?? 0,
+            Total = blogPages?.Length ?? 0,
             Items = blogItems ?? [],
         });
     }

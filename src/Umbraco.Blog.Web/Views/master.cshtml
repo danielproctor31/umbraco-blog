@@ -4,7 +4,7 @@
   var seoDescription = Model.Value<string>("seoDescription");
   var url = Model.Url(mode: UrlMode.Absolute);
 
-  string GetAuthorName(IPublishedContent currentNode)
+  string? GetAuthorName(IPublishedContent currentNode)
   {
     return currentNode.CreatorName();
   }

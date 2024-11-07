@@ -1,15 +1,12 @@
-
 using System.Diagnostics.CodeAnalysis;
-using Umbraco.Blog.Domain.ViewModels;
+using Umbraco.Blog.Domain.Models.Dto;
 using Umbraco.Cms.Core.Models.PublishedContent;
 
-[ExcludeFromCodeCoverage]
-public class BlogListingPageViewModel  : PublishedContentWrapped
-{
-    public BlogListingPageViewModel(IPublishedContent content, IPublishedValueFallback publishedValueFallback) 
-        : base(content, publishedValueFallback)
-    {
-    }
+namespace Umbraco.Blog.Domain.ViewModels;
 
+[ExcludeFromCodeCoverage]
+public class BlogListingPageViewModel(IPublishedContent content, IPublishedValueFallback publishedValueFallback)
+    : PublishedContentWrapped(content, publishedValueFallback)
+{
     public BlogListingResponseDto Results { get; set; } = new();
 }

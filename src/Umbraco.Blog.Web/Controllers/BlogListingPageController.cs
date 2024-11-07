@@ -2,16 +2,18 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewEngines;
 using Umbraco.Blog.Core.Interfaces;
 using Umbraco.Blog.Domain.Models;
+using Umbraco.Blog.Domain.Models.Dto;
 using Umbraco.Blog.Domain.Models.Requests;
+using Umbraco.Blog.Domain.ViewModels;
 using Umbraco.Cms.Core.Web;
 using Umbraco.Cms.Web.Common.Controllers;
 using Umbraco.Cms.Web.Common.PublishedModels;
 
 namespace Umbraco.Blog.Web.Controllers;
 
-public class BlogListingPageController(ILogger<BlogListingPageController> logger, 
+public class BlogListingPageController(ILogger<BlogListingPageController> logger,
     IRequestHandler<BlogListingPageRequest, BlogListingPageViewModel> handler,
-    ICompositeViewEngine compositeViewEngine, IUmbracoContextAccessor umbracoContextAccessor) 
+    ICompositeViewEngine compositeViewEngine, IUmbracoContextAccessor umbracoContextAccessor)
     : RenderController(logger, compositeViewEngine, umbracoContextAccessor)
 {
     [NonAction]
@@ -20,12 +22,9 @@ public class BlogListingPageController(ILogger<BlogListingPageController> logger
     {
         try
         {
-            if (CurrentPage is not BlogListingPage blogPage)
-            {
-                return BadRequest();
-            }
-
-            return CurrentTemplate(await handler.Handle(new BlogListingPageRequest(CurrentPage, request.Page), cancellationToken)); 
+            return CurrentPage is not BlogListingPage blogPage
+                ? BadRequest()
+                : CurrentTemplate(await handler.Handle(new BlogListingPageRequest(CurrentPage, request.Page), cancellationToken));
         }
         catch (Exception e)
         {

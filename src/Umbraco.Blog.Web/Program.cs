@@ -1,4 +1,4 @@
-using Umbraco.Blog.Services;
+using Umbraco.Blog.Services.Extensions;
 using Umbraco.Blog.Web.Extensions;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);

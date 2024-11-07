@@ -12,9 +12,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Solution Items", "_Solutio
 		.dockerignore = .dockerignore
 		.editorconfig = .editorconfig
 		Directory.Packages.props = Directory.Packages.props
-		globals.json = globals.json
 		nuget.config = nuget.config
 		Directory.Build.props = Directory.Build.props
+		global.json = global.json
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Umbraco.Blog.Domain", "Umbraco.Blog.Domain\Umbraco.Blog.Domain.csproj", "{CC81CF06-4044-4281-8293-A77D7735B0F5}"

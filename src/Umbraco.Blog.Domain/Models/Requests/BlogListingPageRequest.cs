@@ -14,5 +14,5 @@ public class BlogListingPageRequest
     }
 
     public IPublishedContent? CurrentPage { get; set; }
-    public int PageNumber {get; set;} = 1;
+    public int PageNumber { get; set; } = 1;
 }

@@ -5,22 +5,22 @@
 @{
     Layout = null;
     Context.Response.ContentType = "text/xml";
-    IPublishedContent siteHomePage = Model.Root();
+    var siteHomePage = Model.Root();
 
     // Get the maxSiteMapDepth value as an integer if the value is not empty
-    int maxSiteMapDepth = Model.HasValue("maxSiteMapDepth") ? Model.Value<int>("maxSiteMapDepth") : int.MaxValue;
+    var maxSiteMapDepth = Model.HasValue("maxSiteMapDepth") ? Model.Value<int>("maxSiteMapDepth") : int.MaxValue;
 
     // Get the value from the excludedDocumentTypes property as a 'string'
-    string excludedDocumentTypeList = Model.Value<string>("excludedDocumentTypes");
+    var excludedDocumentTypeList = Model.Value<string>("excludedDocumentTypes");
     // Separate the values into separate Document Types and add them to an 'array'
-    string[] excludedDocumentTypes = (!String.IsNullOrEmpty(excludedDocumentTypeList)) ? excludedDocumentTypeList.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(p => p.Trim()).ToArray() : new string[] { };
+    var excludedDocumentTypes = (!string.IsNullOrEmpty(excludedDocumentTypeList)) ? excludedDocumentTypeList.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(p => p.Trim()).ToArray() : new string[] { };
 }
 
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-        xsi:schemalocation="http://www.google.com/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" 
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemalocation="http://www.google.com/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-    
+
     @{
         // Sitemap entry for the homepage is rendered
         RenderSiteMapUrlEntry(siteHomePage);
@@ -41,7 +41,7 @@
 
         <url>
             <loc>@node.Url(mode: UrlMode.Absolute)</loc>
-            <lastmod>@(string.Format("{0:s}+00:00", node.UpdateDate))</lastmod>
+            <lastmod>@($"{node.UpdateDate:s}+00:00")</lastmod>
             <changefreq>@changeFreq</changefreq>
             <priority>@priority</priority>
         </url>

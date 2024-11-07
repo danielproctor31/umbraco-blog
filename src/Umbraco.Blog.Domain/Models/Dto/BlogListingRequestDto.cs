@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
 
-namespace Umbraco.Blog.Domain.Models;
+namespace Umbraco.Blog.Domain.Models.Dto;
 
 [ExcludeFromCodeCoverage]
 public class BlogListingRequestDto

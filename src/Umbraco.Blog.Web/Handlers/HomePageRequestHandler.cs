@@ -1,4 +1,5 @@
 using Umbraco.Blog.Core.Interfaces;
+using Umbraco.Blog.Domain.Models.Dto;
 using Umbraco.Blog.Domain.Models.Requests;
 using Umbraco.Blog.Domain.ViewModels;
 using Umbraco.Blog.Services.Interfaces;
@@ -8,12 +9,12 @@ using Umbraco.Cms.Web.Common.PublishedModels;
 
 namespace Umbraco.Blog.Web.Handlers;
 public class HomePageRequestHandler(IVariationContextAccessor variationContextAccessor, ServiceContext context,
-    IBlogService blogService) 
+    IBlogService blogService)
     : IRequestHandler<HomePage, HomePageViewModel>
 {
-    public async Task<HomePageViewModel> Handle(HomePage homePage, CancellationToken cancellationToken) 
+    public async Task<HomePageViewModel> Handle(HomePage homePage, CancellationToken cancellationToken)
     {
-        var blogFolderId = homePage.BlogFolder?.Id ?? 0;
+        int blogFolderId = homePage.BlogFolder?.Id ?? 0;
         var blogListing = new BlogListingResponseDto();
 
         if (blogFolderId > 0)

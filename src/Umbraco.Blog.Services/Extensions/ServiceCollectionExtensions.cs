@@ -2,7 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Umbraco.Blog.Services.Interfaces;
 
-namespace Umbraco.Blog.Services;
+namespace Umbraco.Blog.Services.Extensions;
 
 [ExcludeFromCodeCoverage]
 public static class ServiceCollectionExtensions

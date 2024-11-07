@@ -62,7 +62,7 @@
                     <title>@(itemTitle)</title>
                     <description><![CDATA[@Html.Raw(itemSummary)]]></description>
                     <guid>@(itemUrl)</guid>
-                    @(Html.Raw(String.Format("{0}{1}{2}", "<link>", itemUrl, "</link>")))
+                    @Html.Raw($"{"<link>"}{itemUrl}{"</link>"}")
                     <pubDate>@(itemPublishDate)</pubDate>
                     <dc:creator>@(itemAuthor)</dc:creator>
                 </item>

@@ -1,3 +1,4 @@
+using Umbraco.Blog.Domain.Models.Dto;
 using Umbraco.Blog.Domain.Models.Requests;
 using Umbraco.Blog.Domain.ViewModels;
 

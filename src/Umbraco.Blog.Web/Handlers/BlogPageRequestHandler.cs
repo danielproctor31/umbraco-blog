@@ -1,10 +1,11 @@
 using Umbraco.Blog.Core.Interfaces;
+using Umbraco.Blog.Domain.ViewModels;
 using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Cms.Core.Services;
 using Umbraco.Cms.Web.Common.PublishedModels;
 
 namespace Umbraco.Blog.Web.Handlers;
-public class BlogPageRequestHandler(IVariationContextAccessor variationContextAccessor, ServiceContext context) 
+public class BlogPageRequestHandler(IVariationContextAccessor variationContextAccessor, ServiceContext context)
     : IRequestHandler<BlogPage, BlogPageViewModel>
 {
     public Task<BlogPageViewModel> Handle(BlogPage blogPage, CancellationToken cancellationToken)
