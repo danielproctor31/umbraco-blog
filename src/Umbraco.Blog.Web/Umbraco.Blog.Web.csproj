@@ -22,6 +22,79 @@
     <ProjectReference Include="..\Umbraco.Blog.Services\Umbraco.Blog.Services.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="umbraco\models\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\ContentTypes\blog.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\ContentTypes\blogpage.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\ContentTypes\homepage.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\ContentTypes\notfoundpage.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\ContentTypes\rssfeedpage.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\ContentTypes\rsssettings.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\ContentTypes\seosettings.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\ContentTypes\statuscodes.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\ContentTypes\xmlsitemap.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\ContentTypes\xmlsitemapsettings.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\Content\404.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\Content\homepage.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\Content\statuscodes.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\DataTypes\ApprovedColor.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\DataTypes\CheckboxList.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\DataTypes\ContentPicker.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\DataTypes\DatePicker.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\DataTypes\DatePickerWithTime.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\DataTypes\Dropdown.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\DataTypes\DropdownMultiple.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\DataTypes\ImageCropper.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\DataTypes\ImageMediaPicker.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\DataTypes\LabelBigint.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\DataTypes\LabelDatetime.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\DataTypes\LabelDecimal.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\DataTypes\LabelInteger.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\DataTypes\LabelString.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\DataTypes\LabelTime.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\DataTypes\ListViewContent.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\DataTypes\ListViewMedia.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\DataTypes\MediaPicker.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\DataTypes\MemberPicker.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\DataTypes\MultipleImageMediaPicker.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\DataTypes\MultipleMediaPicker.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\DataTypes\MultiURLPicker.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\DataTypes\Numeric.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\DataTypes\Radiobox.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\DataTypes\RichtextEditor.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\DataTypes\Tags.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\DataTypes\Textarea.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\DataTypes\Textstring.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\DataTypes\Truefalse.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\DataTypes\UploadArticle.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\DataTypes\UploadAudio.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\DataTypes\UploadFile.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\DataTypes\UploadVectorGraphics.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\DataTypes\UploadVideo.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\DataTypes\XmlSiteMapSettingsHideFromXmlSitemapTogglePropertyEditorUI.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\DataTypes\XmlSiteMapSettingsSearchEngineChangeFrequencyDropdownPropertyEditorUI.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\DataTypes\XmlSiteMapSettingsSearchEngineRelativePrioritySliderPropertyEditorUI.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\Languages\en-us.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\MediaTypes\file.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\MediaTypes\folder.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\MediaTypes\image.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\MediaTypes\umbracomediaarticle.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\MediaTypes\umbracomediaaudio.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\MediaTypes\umbracomediavectorgraphics.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\MediaTypes\umbracomediavideo.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\MemberTypes\member.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\Templates\blogpage.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\Templates\homepage.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\Templates\master.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\Templates\notfoundpage.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\Templates\rssfeedpage.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\Templates\xmlsitemap.config" />
+    <_ContentIncludedByDefault Remove="uSync\v15-backup\usync.config" />
+  </ItemGroup>
+
   <PropertyGroup>
     <!-- Razor files are needed for the backoffice to work correctly -->
     <CopyRazorGenerateFilesToPublishDirectory>true</CopyRazorGenerateFilesToPublishDirectory>
