@@ -4,8 +4,6 @@
     <UserSecretsId>bd903a94-7cf8-4155-9e86-d27c7f324671</UserSecretsId>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Htmx" />
-    <PackageReference Include="Htmx.TagHelpers" />
     <PackageReference Include="Umbraco.Cms" />
     <PackageReference Include="uSync" />
     <PackageReference Include="xStatic" />

@@ -1,16 +1,10 @@
 using System.Diagnostics.CodeAnalysis;
+using Umbraco.Cms.Core.Models.PublishedContent;
 
 namespace Umbraco.Blog.Domain.Models.Requests;
 
 [ExcludeFromCodeCoverage]
-public class BlogListingRequest
+public class BlogListingRequest(IPublishedContent page)
 {
-    public BlogListingRequest(int page, int blogListingPageId)
-    {
-        Page = page;
-        BlogListingPageId = blogListingPageId;
-    }
-
-    public int Page { get; set; } = 1;
-    public int BlogListingPageId { get; set; } = 0;
+    public IPublishedContent Page { get; set; } = page;
 }

@@ -1,5 +1,4 @@
-﻿@using Umbraco.Cms.Web.Common.PublishedModels;
-@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Blog.Domain.ViewModels.HomePageViewModel>
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Blog.Domain.ViewModels.HomePageViewModel>
 @{
 	Layout = "master.cshtml";
 }
@@ -15,6 +14,3 @@
 		<span><i>@blog.CreateDate.ToString("MMM dd, yyyy | 'at' hh:mm tt")</i></span>
 	}
 }
-<br/>
-<br/>
-<span><a href="/blog">All Posts <i class="fa-solid fa-arrow-right"></i></a></span>

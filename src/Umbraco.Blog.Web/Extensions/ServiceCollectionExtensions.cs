@@ -14,7 +14,6 @@ public static class ServiceCollectionExtensions
     {
         services.AddTransient<IRequestHandler<HomePage, HomePageViewModel>, HomePageRequestHandler>();
         services.AddTransient<IRequestHandler<BlogPage, BlogPageViewModel>, BlogPageRequestHandler>();
-        services.AddTransient<IRequestHandler<BlogListingPageRequest, BlogListingPageViewModel>, BlogListingPageRequestHandler>();
 
         return services;
     }

@@ -20,19 +20,8 @@ public class BlogService(IUmbracoContextAccessor umbracoContextAccessor) : IBlog
             throw new UmbracoContextNotFoundException();
         }
 
-        var blogFolder = context?.Content?.GetById(request.BlogListingPageId);
-
-        if (blogFolder == null)
-        {
-            throw new ContentNotFoundException($"No blog listing page found with id: {request.BlogListingPageId}");
-        }
-
-        var blogPages = blogFolder.Children<IPublishedContent>()?
-                            .Where(x => x.ContentType.Alias.Equals("blogPage")).ToArray();
-
-        var blogItems = blogPages?.Skip((request.Page * 10) - 10)
-            ?.Take(10)
-            ?.Select(x => new BlogItemViewModel
+        var blogPages = request.Page.DescendantsOfType("blogPage")
+            .Select(x => new BlogItemViewModel
             {
                 Title = x.Value<string>("title") ?? string.Empty,
                 CreateDate = x.CreateDate,
@@ -41,9 +30,7 @@ public class BlogService(IUmbracoContextAccessor umbracoContextAccessor) : IBlog
 
         return Task.FromResult(new BlogListingResponseDto
         {
-            Page = request.Page,
-            Total = blogPages?.Length ?? 0,
-            Items = blogItems ?? [],
+            Items = blogPages ?? [],
         });
     }
 }
