@@ -488,3 +488,8 @@ umbraco-package-schema.json
 
 # xstatic output
 !/src/Umbraco.Blog.Web/umbraco/Data/xStatic
+
+# database
+database/data/Entropy.bin
+
+**/.env
