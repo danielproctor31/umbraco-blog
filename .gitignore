@@ -485,3 +485,6 @@ umbraco-package-schema.json
 /src/Umbraco.Blog.Web/usync/v15/content/*
 !/src/Umbraco.Blog.Web/usync/v15/content/Statuscodes.config
 !/src/Umbraco.Blog.Web/usync/v15/content/404.config
+
+# xstatic output
+!/src/Umbraco.Blog.Web/umbraco/Data/xStatic

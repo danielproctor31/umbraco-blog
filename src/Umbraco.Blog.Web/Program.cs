@@ -1,16 +1,20 @@
 using Umbraco.Blog.Services.Extensions;
 using Umbraco.Blog.Web.Extensions;
+using XStatic.Core.App;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddRequestHandlers();
-builder.Services.AddBlogServices();
 
 builder.CreateUmbracoBuilder()
     .AddBackOffice()
     .AddWebsite()
     .AddComposers()
     .Build();
+
+builder.Services.AddXStatic().Automatic().Build();
+
+builder.Services.AddRequestHandlers();
+builder.Services.AddBlogServices();
 
 WebApplication app = builder.Build();
 

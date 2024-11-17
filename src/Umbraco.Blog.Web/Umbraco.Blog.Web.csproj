@@ -8,6 +8,7 @@
     <PackageReference Include="Htmx.TagHelpers" />
     <PackageReference Include="Umbraco.Cms" />
     <PackageReference Include="uSync" />
+    <PackageReference Include="xStatic" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,6 +25,7 @@
 
   <ItemGroup>
     <Folder Include="umbraco\models\" />
+    <Folder Include="umbraco\Data\xStatic\" />
   </ItemGroup>
 
   <ItemGroup>
